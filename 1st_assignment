@@ -1,1 +1,292 @@
+Q-1 WAP to check whether a given is Armstrong or not ?
+
+Sol - #include <stdio.h>
+int main() {
+    int num, sum = 0, temp, digit;
+    printf("Enter an integer: ");
+    scanf("%d", &num);
+    temp = num;
+
+    while (temp > 0) {
+        digit = temp % 10;
+        sum += digit * digit * digit;
+        temp /= 10;
+    }
+
+    if (sum == num) {
+        printf("%d is an armstrong number.\n", num);
+    } else {
+        printf("%d is not an armstrong number.\n", num);
+    }
+
+    return 0;
+}
+
+
+Q-2 - WAP to read two integers and print their HCF ?
+
+Sol- #include <stdio.h>
+
+int main() {
+    int num1, num2, hcf, i;
+    printf("Enter two integers: ");
+    scanf("%d %d", &num1, &num2);
+
+    for(i = 1; i <= num1 && i <= num2; i++) {
+        if(num1 % i == 0 && num2 % i == 0) {
+            hcf = i;
+        }
+    }
+
+    printf("HCF of %d and %d is %d.\n", num1, num2, hcf);
+
+    return 0;
+}
+
+
+Q-3 - WAP to subtract two integers without using Minus(-) operator.(hint Bitwise
+operator)?
+
+Sol - #include <stdio.h>
+
+int subtract(int a, int b) {
+    while(b != 0) {
+        int minus = (~a) & b;
+        a = a ^ b;
+        b = minus << 1;
+    }
+    return a;
+}
+
+int main() {
+    int num1, num2;
+    printf("Enter two integers: ");
+    scanf("%d %d", &num1, &num2);
+
+    int result = subtract(num1, num2);
+    printf("Result of %d - %d is %d.\n", num1, num2, result);
+
+    return 0;
+}
+
+O-4 Wap to accept 2 integers numbers and swap them using 4 different methods in C language ?
+
+Sol - Method 1 - 
+#include <stdio.h>
+
+int subtract(int a, int b) {
+    while(b != 0) {
+        int minus = (~a) & b;
+        a = a ^ b;
+        b = minus << 1;
+    }
+    return a;
+}
+
+int main() {
+    int num1, num2;
+    printf("Enter two integers: ");
+    scanf("%d %d", &num1, &num2);
+
+    int result = subtract(num1, num2);
+    printf("Result of %d - %d is %d.\n", num1, num2, result);
+
+    return 0;
+}
+
+
+Method 2 - 
+#include <stdio.h>
+
+int main() {
+    int a, b, temp;
+    printf("Enter first integer (a): ");
+    scanf("%d", &a);
+    printf("Enter second integer (b): ");
+    scanf("%d", &b);
+
+    printf("Before swapping: a=%d, b=%d\n", a, b);
+
+    a = a + b;
+    b = a - b;
+    a = a - b;
+
+    printf("After swapping: a=%d, b=%d\n", a, b);
+
+    return 0;
+}
+
+Method 3 - 
+#include <stdio.h>
+
+int main() {
+    int a, b, temp;
+    printf("enter first integer(a):");
+    scanf("%d", &a);
+    printf("enter second integer(b):");
+    scanf("%d", &b);
+    
+    printf("before swapping: a=%d, b=%d\n", a, b);
+    
+    a = a ^ b;
+    b = a ^ b;
+    a = a ^ b;
+    
+    printf("after swapping: a=%d, b=%d\n", a, b);
+    
+    return 0;
+}
+
+
+Method 4-
+#include <stdio.h>
+
+void swap(int *x, int *y) {
+    int temp;
+    temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
+int main() {
+    int a, b;
+    printf("enter first integer(a):");
+    scanf("%d", &a);
+    printf("enter second integer(b):");
+    scanf("%d", &b);
+    
+    printf("before swapping: a=%d, b=%d\n", a, b);
+    
+    swap(&a, &b);
+    
+    printf("after swapping: a=%d, b=%d\n", a, b);
+    
+    return 0;
+}
+
+Q-5 WAP to check whether number is Perfect Number or not. (To check perfect
+number, we have to find all divisors of that number and find their sum, if sum of divisors is
+equal to number it means number is Perfect Number.)
+
+Sol - 
+#include <stdio.h>
+
+int isPerfectNumber(int num) {
+    int sum = 0;
+    // Find divisors and calculate their sum
+    for (int i = 1; i <= num / 2; i++) {
+        if (num % i == 0) {
+            sum += i;
+        }
+    }
+    return sum == num;
+}
+
+int main() {
+    int number;
+    // Input a number
+    printf("Enter a number: ");
+    scanf("%d", &number);
+    
+    // Check if the number is a perfect number
+    if (isPerfectNumber(number)) {
+        printf("%d is a Perfect Number.\n", number);
+    } else {
+        printf("%d is not a Perfect Number.\n", number);
+    }
+    
+    return 0;
+}
+Q - 6 - WAP to accept a coordinate point in an XY coordinate system and determine in
+which quadrant the coordinate point lies.
+Test Data: 7 9
+Expected Output: The coordinate point (7,9) lies in the First quadrant.?
+
+Sol - 
+int main() { int x, y:
+printf("Enter the X coordinate: ");
+scanf("%d", &x);
+printf("Enter the Y coordinate: ");
+scanf("%d", &y);
+if (x > 0 && y > 0) {
+printf("The point (%d, %d) is in the first quadrant.\n", x,
+y);
+} else if (x < 0 && y > 0) {
+printf("The point (%d, %d) is in the second quadrant.\n", x, y);
+} else if (x < 0 && y < 0) {
+printf("The point (%d, %d) is in the third quadrant.\n", x, y);
+} else if (x > 0 && y < 0) {
+printf("The point (%d, %d) is in the fourth quadrant.\n", x, y);
+} else if (x == 0 && y == 0) {
+printf("The point is at the origin.\n");
+} else if (x == 0) {
+printf("The point is on the Y-axis.\n"); } else if (y == 0) {
+return 0;
+printf("The point is on the X-axis.\n");}
+}
+
+
+Q - 7 - # WAP to binary to decimal conversion?
+
+Sol - 
+#include <stdio.h> #include <stdio.h>
+int binaryToDecimal(int binary) { int decimal = 0, base = 1, rem;
+while (binary> 0) { rem = binary % 10;
+decimal += rem * base; binary /= 10;
+base *= 2;
+return decimal;
+}
+}
+void decimalToBinary(int decimal) {
+if (decimal == 0) {
+}
+printf("0");
+return;
+int binary[32], index = 0;
+while (decimal > 0) {
+}
+binary[index++] = decimal % 2; decimal /= 2;
+for (int i = index - 1; i >= 0; i--)
+printf("%d", binary[i]);
+
+}
+int binary[32], index = 0;
+while (decimal > 0) {
+}
+binary[index++] = decimal % 2; decimal /= 2;
+for (int i = index - 1; i >= 0; i--)
+printf("%d", binary[i]);
+int main() {
+int choice, num;
+printf("1. Binary to Decimal\n2. Decimal to Binary\nChoose: "); scanf("%d", &choice);
+if (choice == 1) {
+printf("Enter binary: ");
+scanf("%d", &num);
+printf("Decimal: %d\n", binaryToDecimal(num));
+} else if (choice == 2) {
+printf("Enter decimal: ");
+scanf("%d", &num);
+printf("Binary: ");
+decimalToBinary(num);
+printf("\n");
+} else {
+printf("Invalid choice.\n");
+}
+
+
+Q - 8 - # WAP to print below mentioned pattern:
+# 1
+# 01
+# 101
+# 0101
+# 10101
+
+Sol - 
+
+Q - 9 - # WAP to print following pyramid:
+# 0 0
+# 01 01
+# 010 010
+# 0101 0101
+# 0101001010
 
