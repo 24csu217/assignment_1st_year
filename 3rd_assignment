@@ -5,21 +5,21 @@ void addition() {
     double a, b;
     printf("Enter two numbers: ");
     scanf("%lf %lf", &a, &b);
-    printf("Result: %.2lf\n", a + b);
+    printf("Result: %lf\n", a + b);
 }
 
 void subtraction() {
     double a, b;
     printf("Enter two numbers: ");
     scanf("%lf %lf", &a, &b);
-    printf("Result: %.2lf\n", a - b);
+    printf("Result: %lf\n", a - b);
 }
 
 void multiplication() {
     double a, b;
     printf("Enter two numbers: ");
     scanf("%lf %lf", &a, &b);
-    printf("Result: %.2lf\n", a * b);
+    printf("Result: %lf\n", a * b);
 }
 
 void division() {
@@ -27,7 +27,7 @@ void division() {
     printf("Enter two numbers: ");
     scanf("%lf %lf", &a, &b);
     if (b != 0)
-        printf("Result: %.2lf\n", a / b);
+        printf("Result: %lf\n", a / b);
     else
         printf("Error! Division by zero.\n");
 }
@@ -37,7 +37,7 @@ void logarithm() {
     printf("Enter a number: ");
     scanf("%lf", &a);
     if (a > 0)
-        printf("Result: %.2lf\n", log(a));
+        printf("Result: %lf\n", log(a));
     else
         printf("Error! Logarithm of non-positive number.\n");
 }
@@ -47,7 +47,7 @@ void squareRoot() {
     printf("Enter a number: ");
     scanf("%lf", &a);
     if (a >= 0)
-        printf("Result: %.2lf\n", sqrt(a));
+        printf("Result: %lf\n", sqrt(a));
     else
         printf("Error! Square root of negative number.\n");
 }
